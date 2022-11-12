@@ -1,0 +1,7 @@
+---
+# roles/kubectl/requirements.yml
+
+collections: []
+
+roles: []
+...

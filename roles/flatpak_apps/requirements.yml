@@ -1,0 +1,8 @@
+---
+# roles/flatpak_apps/requirements.yml
+
+collections:
+  - name: "community.general"
+
+roles: []
+...

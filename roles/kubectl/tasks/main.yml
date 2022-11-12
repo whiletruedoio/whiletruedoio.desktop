@@ -1,0 +1,30 @@
+---
+# roles/kubectl/tasks/main.yml
+
+## Binary Management
+
+- name: "Manage kubectl Binary Directory"
+  ansible.builtin.file:
+    name: "{{ kubectl_binary_location }}"
+    state: "directory"
+    owner: "root"
+    group: "root"
+    mode: 0755
+  become: true
+  tags:
+    - "kubectl"
+    - "binary"
+
+- name: "Download kubectl Binary"
+  ansible.builtin.get_url:
+    url: "{{ kubectl_binary_url }}"
+    checksum: ”sha256:{{ kubectl_binary_checksum }}”
+    dest: "{{ kubectl_binary_location }}/kubectl"
+    owner: "root"
+    group: "root"
+    mode: 0755
+  become: true
+  tags:
+    - "kubectl"
+    - "binary"
+...

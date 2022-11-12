@@ -1,0 +1,29 @@
+---
+# roles/kubens/tasks/main.yml
+
+## Binary Management
+
+- name: "Manage kubens Binary Directory"
+  ansible.builtin.file:
+    name: "{{ kubens_binary_location }}"
+    state: "directory"
+    owner: "root"
+    group: "root"
+    mode: 0755
+  become: true
+  tags:
+    - "kubens"
+    - "binary"
+
+- name: "Download kubens Binary"
+  ansible.builtin.get_url:
+    url: "{{ kubens_binary_url }}"
+    dest: "{{ kubens_binary_location }}/kubens"
+    owner: "root"
+    group: "root"
+    mode: 0755
+  become: true
+  tags:
+    - "kubens"
+    - "binary"
+...

@@ -1,0 +1,13 @@
+---
+# roles/kubectl/defaults/main.yml
+
+## Binary Management
+
+kubectl_binary_state: "present"
+
+kubectl_binary_version: "v1.25.0"
+kubectl_binary_url: "https://dl.k8s.io/release/{{ kubectl_binary_version }}/bin/linux/amd64/kubectl"
+kubectl_binary_checksum: "https://dl.k8s.io/release/{{ kubectl_binary_version }}/bin/linux/amd64/kubectl"
+
+kubectl_binary_location: "/usr/local/bin"
+...

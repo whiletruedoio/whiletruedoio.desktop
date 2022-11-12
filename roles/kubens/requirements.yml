@@ -1,0 +1,7 @@
+---
+# roles/kubens/requirements.yml
+
+collections: []
+
+roles: []
+...

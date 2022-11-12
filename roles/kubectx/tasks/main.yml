@@ -1,0 +1,29 @@
+---
+# roles/kubectx/tasks/main.yml
+
+## Binary Management
+
+- name: "Manage kubectx Binary Directory"
+  ansible.builtin.file:
+    name: "{{ kubectx_binary_location }}"
+    state: "directory"
+    owner: "root"
+    group: "root"
+    mode: 0755
+  become: true
+  tags:
+    - "kubectx"
+    - "binary"
+
+- name: "Download kubectx Binary"
+  ansible.builtin.get_url:
+    url: "{{ kubectx_binary_url }}"
+    dest: "{{ kubectx_binary_location }}/kubectx"
+    owner: "root"
+    group: "root"
+    mode: 0755
+  become: true
+  tags:
+    - "kubectx"
+    - "binary"
+...
