@@ -1,0 +1,25 @@
+---
+# roles/visualstudiocode/defaults/main.yml
+
+## Package Management
+
+### Set the desired package to "present" and the other one to "absent" to avoid
+### conflicts and duplications. Defaults to "package install".
+
+### Package
+
+visualstudiocode_package_names: "code"
+visualstudiocode_package_state: "present"
+
+### Flatpak
+
+visualstudiocode_flatpak_names: "com.visualstudio.code"
+visualstudiocode_flatpak_state: "absent"
+
+visualstudiocode_flatpak_alias_name: "code"
+visualstudiocode_flatpak_alias_state: "{{ visualstudiocode_flatpak_state }}"
+
+## Extension Management
+
+visualstudiocode_extension_names: []
+...

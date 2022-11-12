@@ -1,0 +1,5 @@
+---
+# roles/visualstudiocode/meta/main.yml
+
+dependencies: []
+...

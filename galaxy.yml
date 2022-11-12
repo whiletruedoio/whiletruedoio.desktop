@@ -1,0 +1,32 @@
+---
+# galaxy.yml for whiletruedoio.general
+
+namespace: "whiletruedoio"
+name: "desktop"
+description: "Ansible collection for desktop workstation and notebook plugins,
+              roles and playbooks."
+
+version: "1.0.0"
+
+readme: "README.md"
+license_file: "LICENSE"
+
+homepage: "https://while-true-do.io"
+repository: "https://github.com/whiletruedoio/whiletruedoio.desktop"
+documentation: "https://github.com/whiletruedoio/whiletruedoio.desktop"
+issues: "https://github.com/whiletruedoio/whiletruedoio.desktop/issues"
+
+authors:
+  - "Daniel Schier <dschier@while-true-do.io>"
+
+tags:
+  - "package"
+  - "service"
+  - "configuration"
+  - "network"
+  - "misc"
+
+dependencies:
+  "ansible.posix": ">1.0.0"
+  "community.general": ">=1.0.0"
+...

@@ -1,0 +1,30 @@
+---
+# roles/skaffold/tasks/main.yml
+
+## Binary Management
+
+- name: "Manage skaffold Binary Directory"
+  ansible.builtin.file:
+    name: "{{ skaffold_binary_location }}"
+    state: "directory"
+    owner: "root"
+    group: "root"
+    mode: 0755
+  become: true
+  tags:
+    - "skaffold"
+    - "binary"
+
+- name: "Download skaffold Binary"
+  ansible.builtin.get_url:
+    url: "{{ skaffold_binary_url }}"
+    checksum: ”sha256:{{ skaffold_binary_checksum }}”
+    dest: "{{ skaffold_binary_location }}/skaffold"
+    owner: "root"
+    group: "root"
+    mode: 0755
+  become: true
+  tags:
+    - "skaffold"
+    - "binary"
+...

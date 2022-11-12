@@ -1,0 +1,71 @@
+---
+# reference: https://cirrus-ci.org/guide/writing-tasks/
+
+container:
+  cpu: 2
+  memory: "2G"
+
+# Sanity checks
+lint_markdown_task:
+  name: "Lint Markdown"
+  container:
+    image: "docker.io/library/node:latest"
+  install_script: "npm install -g markdownlint-cli"
+  lint_script: "markdownlint *.md docs/*.md"
+
+lint_yaml_task:
+  name: "Lint YAML"
+  container:
+    image: "docker.io/library/alpine:latest"
+  install_script: "apk add --no-cache yamllint"
+  lint_script: "yamllint ."
+
+lint_ansible_task:
+  name: "Lint Ansible"
+  container:
+    image: "docker.io/library/python:latest"
+  install_script: "pip install ansible-core ansible-lint"
+  prepare_script: "ansible-galaxy collection install -r requirements.yml"
+  lint_script: "ansible-lint ."
+
+# Build
+build_collection_task:
+  name: "Build Collection"
+  depends_on:
+    - "Lint Markdown"
+    - "Lint YAML"
+    - "Lint Ansible"
+  container:
+    image: "docker.io/library/python:latest"
+  install_script: "pip install ansible-core"
+  build_script: "ansible-galaxy collection build -f -vvv --output-path build/ ."
+  collection_artifacts:
+    path: "build/*"
+
+# Test
+# TODO: Run install tests before publish
+# TODO: Run syntax check before publish
+# TODO: Run integration tests before publish
+
+# Publish
+env:
+  # yamllint disable-line rule:line-length
+  GALAXY_API_KEY: "ENCRYPTED[!bf62bd56a530b1c7e4b35d76f982271787f4a493512ce1a2d2263e4cea71d53c5a014ee3e114fb174b734b4856f4f375!]"
+
+publish_collection_task:
+  name: "Publish Collection"
+  only_if: "$CIRRUS_BRANCH == $CIRRUS_DEFAULT_BRANCH &&
+            $CIRRUS_TAG != '' &&
+            $CIRRUS_ENVIRONMENT != 'CLI'"
+  depends_on:
+    - "Build Collection"
+  container:
+    image: "docker.io/library/python:latest"
+  install_script: "pip install ansible-core"
+  # check if tag is set in galaxy.yml
+  version_script: "grep -q $CIRRUS_TAG galaxy.yml"
+  build_script: "ansible-galaxy collection build -f -vvv --output-path build/ ."
+  publish_script: "ansible-galaxy collection publish \
+                  --api-key $GALAXY_API_KEY \
+                  build/whiletruedoio-desktop-$CIRRUS_TAG.tar.gz"
+...

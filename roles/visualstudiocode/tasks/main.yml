@@ -1,0 +1,90 @@
+---
+# roles/visualstudiocode/tasks/main.yml
+
+## Repository Management
+
+- name: "Manage visualstudiocode Repository"
+  ansible.builtin.template:
+    src: "vscode.repo.j2"
+    dest: "/etc/yum.repos.d/vscode.repo"
+    owner: "root"
+    group: "root"
+    mode: 0644
+  become: true
+  when:
+    - "visualstudiocode_package_state != 'absent'"
+  tags:
+    - "visualstudiocode"
+    - "repository"
+    - "package"
+
+## Package Management
+
+### Fedora Workstation, Server, Cloud
+- name: "Manage visualstudiocode Package (dnf)"
+  ansible.builtin.package:
+    name: "{{ visualstudiocode_package_names }}"
+    state: "{{ visualstudiocode_package_state }}"
+  become: true
+  when:
+    - "ansible_pkg_mgr =='dnf'"
+  tags:
+    - "visualstudiocode"
+    - "package"
+
+### Fedora Silverblue, IoT, CoreOS
+- name: "Manage visualstudiocode Package (rpm-ostree)"
+  community.general.rpm_ostree_pkg:
+    name: "{{ visualstudiocode_package_names }}"
+    state: "{{ visualstudiocode_package_state }}"
+  become: true
+  when:
+    - "ansible_pkg_mgr =='atomic_container'"
+  tags:
+    - "visualstudiocode"
+    - "package"
+
+## Flatpak Management
+
+- name: "Manage visualstudiocode Flatpak"
+  community.general.flatpak:
+    name: "{{ visualstudiocode_flatpak_names }}"
+    state: "{{ visualstudiocode_flatpak_state }}"
+    remote: "flathub"
+    method: "system"
+  tags:
+    - "visualstudiocode"
+    - "flatpak"
+
+- name: "Manage bashrc.d Directory"
+  ansible.builtin.file:
+    path: "/.bashrc.d/"
+    state: "directory"
+  tags:
+    - "visualstudiocode"
+    - "config"
+    - "bash"
+
+- name: "Manage visualstudiocode Alias"
+  ansible.builtin.lineinfile:
+    path: "/.bashrc.d/aliases"
+    line: "alias code='flatpak run com.visualstudio.code"
+    state: "present"
+    create: true
+  tags:
+    - "visualstudiocode"
+    - "config"
+    - "bash"
+    - "alias"
+
+## Extension Management
+
+- name: "Manage visualstudiocode Extensions"
+  ansible.builtin.command:
+    cmd: "code --install-extension {{ item }}"
+  loop: "{{ visualstudiocode_extension_names }}"
+  changed_when: false
+  tags:
+    - "visualstudiocode"
+    - "extension"
+...

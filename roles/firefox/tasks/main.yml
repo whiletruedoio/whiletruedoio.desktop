@@ -1,0 +1,37 @@
+---
+# roles/firefox/tasks/main.yml
+
+### Flatpak
+- name: "Manage firefox Flatpaks"
+  community.general.flatpak:
+    name: "{{ firefox_flatpak_names }}"
+    state: "{{ firefox_flatpak_state }}"
+    remote: "flathub"
+  tags:
+    - "firefox"
+    - "flatpak"
+
+### Fedora Workstation, Server, Cloud
+- name: "Manage firefox Packages (dnf)"
+  ansible.builtin.package:
+    name: "{{ firefox_package_names }}"
+    state: "{{ firefox_package_state }}"
+  become: true
+  when:
+    - "ansible_pkg_mgr =='dnf'"
+  tags:
+    - "firefox"
+    - "package"
+
+### Fedora Silverblue, IoT, CoreOS
+- name: "Manage firefox Packages (rpm-ostree)"
+  community.general.rpm_ostree_pkg:
+    name: "{{ firefox_package_names }}"
+    state: "{{ firefox_package_state }}"
+  become: true
+  when:
+    - "ansible_pkg_mgr =='atomic_container'"
+  tags:
+    - "firefox"
+    - "package"
+...

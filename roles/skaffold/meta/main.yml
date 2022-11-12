@@ -1,0 +1,5 @@
+---
+# roles/skaffold/meta/main.yml
+
+dependencies: []
+...

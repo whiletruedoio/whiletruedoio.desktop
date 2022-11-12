@@ -1,0 +1,5 @@
+---
+# roles/minikube/meta/main.yml
+
+dependencies: []
+...

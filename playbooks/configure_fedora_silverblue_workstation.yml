@@ -1,0 +1,38 @@
+---
+# playbooks/configure_fedora_silverblue_workstation.yml
+#
+# This playbook is meant to configure a Fedora Silverblue Installation and
+# provide tools for development, office and productivity, but also some
+# gaming and multimedia.
+
+- name: "Configure Fedora Silverblue Workstation"
+  hosts: "{{ targets | default('localhost') }}"
+
+  tasks:
+
+    - name: "Import fedora_repos Role"
+      ansible.builtin.import_role:
+        name: "whiletruedoio.desktop.fedora_repos"
+      tags:
+        - "fedora"
+        - "repository"
+
+    - name: "Import flathub Role"
+      ansible.builtin.import_role:
+        name: "whiletruedoio.desktop.flathub"
+      tags:
+        - "flathub"
+        - "repository"
+
+    - name: "Import firefox Role"
+      ansible.builtin.import_role:
+        name: "whiletruedoio.desktop.firefox"
+      tags:
+        - "firefox"
+
+    - name: "Import visualstudiocode Role"
+      ansible.builtin.import_role:
+        name: "whiletruedoio.desktop.visualstudiocode"
+      tags:
+        - "visualstudiocode"
+...

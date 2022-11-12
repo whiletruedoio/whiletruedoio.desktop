@@ -1,0 +1,36 @@
+---
+# roles/fedora_repos/tasks/main.yml
+
+## Repository Management
+
+- name: "Manage modular Repository"
+  community.general.ini_file:
+    path: "/etc/yum.repos.d/fedora-modular.repo"
+    section: "fedora-modular"
+    option: "enabled"
+    value: "{{ fedora_repository_modular_enabled }}"
+  become: true
+  tags:
+    - "fedora"
+    - "repository"
+
+- name: "Manage fedora-updates-modular Repository"
+  community.general.ini_file:
+    path: "/etc/yum.repos.d/fedora-updates-modular.repo"
+    section: "updates-modular"
+    option: "enabled"
+    value: "{{ fedora_repository_modular_updates_enabled }}"
+  become: true
+  tags:
+    - "fedora"
+    - "repository"
+
+- name: "Manage fedora flatpak Repository"
+  community.general.flatpak_remote:
+    name: "{{ fedora_repository_flatpak_name }}"
+    state: "{{ fedora_repository_flatpak_state }}"
+  become: true
+  tags:
+    - "fedora"
+    - "repository"
+...

@@ -1,0 +1,8 @@
+---
+# roles/flatpak_apps/defaults/main.yml
+
+## Package Management
+
+flatpak_apps_present: []
+flatpak_apps_absent: []
+...

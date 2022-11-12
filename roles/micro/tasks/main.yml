@@ -1,0 +1,57 @@
+---
+# roles/micro/tasks/main.yml
+
+## Package Management
+
+### Fedora Workstation, Server, Cloud
+- name: "Manage micro Package (dnf)"
+  ansible.builtin.package:
+    name: "{{ micro_package_names }}"
+    state: "{{ micro_package_state }}"
+  become: true
+  when:
+    - "ansible_pkg_mgr =='dnf'"
+  tags:
+    - "micro"
+    - "package"
+
+### Fedora Silverblue, IoT, CoreOS
+- name: "Manage micro Package (rpm-ostree)"
+  community.general.rpm_ostree_pkg:
+    name: "{{ micro_package_names }}"
+    state: "{{ micro_package_state }}"
+  become: true
+  register: "r_ostree_pkg"
+  when:
+    - "ansible_pkg_mgr =='atomic_container'"
+  tags:
+    - "micro"
+    - "package"
+
+## Configuration Management
+
+- name: "Enable micro Default Editor"
+  ansible.builtin.copy:
+    src: "z91-micro-default-editor.sh"
+    dest: "/etc/profile.d/z91-micro-default-editor.sh"
+    owner: "root"
+    group: "root"
+    mode: 0644
+  become: true
+  when:
+    - "micro_default_editor_enabled == true"
+  tags:
+    - "micro"
+    - "configuration"
+
+- name: "Disable micro Default Editor"
+  ansible.builtin.file:
+    path: "/etc/profile.d/z91-micro-default-editor.sh"
+    state: "absent"
+  become: true
+  when:
+    - "micro_default_editor_enabled == false"
+  tags:
+    - "micro"
+    - "configuration"
+...

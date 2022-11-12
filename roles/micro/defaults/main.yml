@@ -1,0 +1,13 @@
+---
+# roles/micro/defaults/main.yml
+
+## Package Management
+
+micro_package_names:
+  - "micro"
+micro_package_state: "present"
+
+## Configuration Management
+
+micro_default_editor_enabled: true
+...

@@ -1,0 +1,25 @@
+---
+# roles/flatpak_apps/tasks/main.yml
+
+## Package Management
+
+- name: "Install Flatpaks"
+  community.general.flatpak:
+    name: "{{ flatpak_apps_present }}"
+    state: "present"
+    remote: "flathub"
+  when:
+    - "flatpak_apps_present | length > 0"
+  tags:
+    - "flatpak"
+
+- name: "Uninstall Flatpaks"
+  community.general.flatpak:
+    name: "{{ flatpak_apps_absent }}"
+    state: "absent"
+    remote: "flathub"
+  when:
+    - "flatpak_apps_absent | length > 0"
+  tags:
+    - "flatpak"
+...

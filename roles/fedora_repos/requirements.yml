@@ -1,0 +1,8 @@
+---
+# roles/fedora_repos/requirements.yml
+
+collections:
+  - name: "community.general"
+
+roles: []
+...

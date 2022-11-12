@@ -1,0 +1,7 @@
+---
+# roles/minikube/requirements.yml
+
+collections: []
+
+roles: []
+...

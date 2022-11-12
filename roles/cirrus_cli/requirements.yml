@@ -1,0 +1,6 @@
+---
+# roles/cirrus_cli/requirements.yml
+
+collections: []
+roles: []
+...

@@ -1,0 +1,5 @@
+---
+# roles/fedora_repos/meta/main.yml
+
+dependencies: []
+...

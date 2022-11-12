@@ -1,0 +1,13 @@
+---
+# roles/minikube/defaults/main.yml
+
+## Binary Management
+
+minikube_binary_state: "present"
+
+minikube_binary_version: "v1.28.0"
+minikube_binary_url: "https://github.com/kubernetes/minikube/releases/download/{{ minikube_binary_version }}/minikube-linux-amd64"
+minikube_binary_checksum: "https://github.com/kubernetes/minikube/releases/download/{{ minikube_binary_version }}/minikube-linux-amd64.sha256"
+
+minikube_binary_location: "/usr/local/bin"
+...

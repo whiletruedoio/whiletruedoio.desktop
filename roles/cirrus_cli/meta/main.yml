@@ -1,0 +1,5 @@
+---
+# roles/cirrus_cli/meta/main.yml
+
+dependencies: []
+...

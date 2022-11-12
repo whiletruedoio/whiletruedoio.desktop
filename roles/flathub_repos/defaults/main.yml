@@ -1,0 +1,10 @@
+...
+# roles/flathub_repos/defauts/main.yml
+
+## Repository Management
+
+flathub_repository_name: "flathub"
+flathub_repository_state: "present"
+flathub_repository_url: "https://dl.flathub.org/repo/flathub.flatpakrepo"
+flathub_repository_method: "system"
+...

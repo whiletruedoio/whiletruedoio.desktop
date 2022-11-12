@@ -1,0 +1,30 @@
+---
+# roles/minikube/tasks/main.yml
+
+## Binary Management
+
+- name: "Manage minikube Binary Directory"
+  ansible.builtin.file:
+    name: "{{ minikube_binary_location }}"
+    state: "directory"
+    owner: "root"
+    group: "root"
+    mode: 0755
+  become: true
+  tags:
+    - "minikube"
+    - "binary"
+
+- name: "Download minikube Binary"
+  ansible.builtin.get_url:
+    url: "{{ minikube_binary_url }}"
+    checksum: ”sha256:{{ minikube_binary_checksum }}”
+    dest: "{{ minikube_binary_location }}/minikube"
+    owner: "root"
+    group: "root"
+    mode: 0755
+  become: true
+  tags:
+    - "minikube"
+    - "binary"
+...

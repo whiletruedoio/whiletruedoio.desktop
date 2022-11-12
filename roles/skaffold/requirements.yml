@@ -1,0 +1,7 @@
+---
+# roles/skaffold/requirements.yml
+
+collections: []
+
+roles: []
+...
