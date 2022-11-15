@@ -4,7 +4,8 @@
 ## Configuration Management
 
 ### Appearance
-gnome_config_background_path: "/usr/share/gnome-background-properties/adwaita.xml"
+gnome_config_background_path: "file:///usr/share/backgrounds/gnome/adwaita-l.webp"
+gnome_config_background_dark_path: "file:///usr/share/backgrounds/gnome/adwaita-d.webp"
 
 ### Display
 gnome_config_night_light_enabled: "true"

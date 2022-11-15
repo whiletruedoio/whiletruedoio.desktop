@@ -10,4 +10,14 @@
     - "gnome"
     - "appearance"
     - "configuration"
+
+- name: "Set Background"
+  community.general.dconf:
+    key: "/org/gnome/desktop/background/picture-uri-dark"
+    value: "'file://{{ gnome_config_background_dark_path }}'"
+    state: "present"
+  tags:
+    - "gnome"
+    - "appearance"
+    - "configuration"
 ...
