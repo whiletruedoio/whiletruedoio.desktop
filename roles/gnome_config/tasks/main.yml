@@ -1,0 +1,30 @@
+---
+# roles/gnome_config/tasks/main.yml
+
+- name: "Import appearance Tasks"
+  ansible.builtin.import_tasks: "appearance.yml"
+
+- name: "Import display Tasks"
+  ansible.builtin.import_tasks: "display.yml"
+
+- name: "Import Keybinding Tasks"
+  ansible.builtin.import_tasks: "keyboard.yml"
+
+- name: "Import mouse Tasks"
+  ansible.builtin.import_tasks: "mouse.yml"
+
+- name: "Import panel Tasks"
+  ansible.builtin.import_tasks: "panel.yml"
+
+- name: "Import power Tasks"
+  ansible.builtin.import_tasks: "power.yml"
+
+- name: "Import privacy Tasks"
+  ansible.builtin.import_tasks: "privacy.yml"
+
+- name: "Import sound Tasks"
+  ansible.builtin.import_tasks: "sound.yml"
+
+- name: "Import windows Tasks"
+  ansible.builtin.import_tasks: "windows.yml"
+...

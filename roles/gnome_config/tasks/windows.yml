@@ -1,0 +1,14 @@
+---
+# roles/gnome_config/tasks/windows.yml
+
+- name: "Window Buttons"
+  community.general.dconf:
+    key: "/org/gnome/desktop/wm/preferences/button-layout"
+    value: "{{ gnome_config_window_button_layout }}"
+    state: "present"
+  tags:
+    - "gnome"
+    - "shell"
+    - "window"
+    - "configuration"
+...

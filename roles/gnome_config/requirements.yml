@@ -1,0 +1,8 @@
+---
+# roles/gnome_config/requirements.yml
+
+collections:
+  - "community.general"
+
+roles: []
+...

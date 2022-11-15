@@ -1,0 +1,38 @@
+---
+# roles/gnome_config/defaults/main.yml
+
+## Configuration Management
+
+### Appearance
+gnome_config_background_path: "/usr/share/gnome-background-properties/adwaita.xml"
+
+### Display
+gnome_config_night_light_enabled: "true"
+gnome_config_night_light_schedule: "true"
+
+### Keyboard
+
+gnome_config_shortcut_show_destop: "['<Super>D']"
+gnome_config_shortcut_switch_windows: "['<Alt>Tab']"
+
+### Mouse
+gnome_config_touchpad_tap_to_click: "true"
+
+### panel
+gnome_config_panel_show_weekdate: "true"
+gnome_config_panel_show_date: "true"
+
+### power
+gnome_config_show_battery_percentage: "true"
+gnome_config_power_button_action: "'suspend'"
+
+### privacy
+gnome_config_remove_old_temp_files: "true"
+gnome_config_remove_old_trash_files: "true"
+
+### sound
+gnome_config_allow_volume_above_100_percent: "true"
+
+### windows
+gnome_config_window_button_layout: "'appmenu:minimize,maximize,close'"
+...

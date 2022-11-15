@@ -1,0 +1,23 @@
+---
+# roles/gnome_config/tasks/keyboard.yml
+
+- name: "Show Desktop Shortcut"
+  community.general.dconf:
+    key: "/org/gnome/desktop/wm/keybindings/show-desktop"
+    value: "{{ gnome_config_shortcut_show_destop }}"
+    state: "present"
+  tags:
+    - "gnome"
+    - "keyboard"
+    - "configuration"
+
+- name: "Switch Windows Shortcut"
+  community.general.dconf:
+    key: "/org/gnome/desktop/wm/keybindings/switch-windows"
+    value: "{{ gnome_config_shortcut_switch_windows }}"
+    state: "present"
+  tags:
+    - "gnome"
+    - "keyboard"
+    - "configuration"
+...

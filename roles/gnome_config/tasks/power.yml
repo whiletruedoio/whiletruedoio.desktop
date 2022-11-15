@@ -1,0 +1,25 @@
+---
+# roles/gnome_config/tasks/power.yml
+
+- name: "Show Battery Percentage"
+  community.general.dconf:
+    key: "/org/gnome/desktop/interface/show-battery-percentage"
+    value: "{{ gnome_config_show_battery_percentage }}"
+    state: "present"
+  tags:
+    - "gnome"
+    - "shell"
+    - "power"
+    - "configuration"
+
+- name: "Power - Button Action"
+  community.general.dconf:
+    key: "/org/gnome/settings-daemon/plugins/power/power-button-action"
+    value: "{{ gnome_config_power_button_action }}"
+    state: "present"
+  tags:
+    - "gnome"
+    - "shell"
+    - "power"
+    - "configuration"
+...

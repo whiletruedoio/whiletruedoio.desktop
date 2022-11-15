@@ -1,0 +1,14 @@
+---
+# roles/gnome_config/tasks/sound.yml
+
+- name: "Sound - Overamplify Volume"
+  community.general.dconf:
+    key: "/org/gnome/desktop/sound/allow-volume-above-100-percent"
+    value: "{{ gnome_config_allow_volume_above_100_percent }}"
+    state: "present"
+  tags:
+    - "gnome"
+    - "shell"
+    - "sound"
+    - "configuration"
+...
