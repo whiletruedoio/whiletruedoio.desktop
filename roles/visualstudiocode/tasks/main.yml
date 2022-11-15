@@ -58,8 +58,10 @@
 
 - name: "Manage bashrc.d Directory"
   ansible.builtin.file:
-    path: "/.bashrc.d/"
+    path: "~/.bashrc.d/"
     state: "directory"
+  when:
+    - "visualstudiocode_flatpak_state != 'absent'"
   tags:
     - "visualstudiocode"
     - "config"
@@ -67,10 +69,12 @@
 
 - name: "Manage visualstudiocode Alias"
   ansible.builtin.lineinfile:
-    path: "/.bashrc.d/aliases"
+    path: "~/.bashrc.d/aliases"
     line: "alias code='flatpak run com.visualstudio.code"
     state: "present"
     create: true
+  when:
+    - "visualstudiocode_flatpak_state != 'absent'"
   tags:
     - "visualstudiocode"
     - "config"
