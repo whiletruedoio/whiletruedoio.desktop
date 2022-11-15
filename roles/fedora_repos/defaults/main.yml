@@ -6,7 +6,7 @@
 fedora_repository_modular_name: "fedora-modular"
 fedora_repository_modular_enabled: "false"
 fedora_repository_modular_updates_name: "updates-modular"
-fedora_repository_modular_updates_state: "disabled"
+fedora_repository_modular_updates_enabled: "false"
 
 fedora_repository_flatpak_name: "fedora"
 fedora_repository_flatpak_state: "absent"
