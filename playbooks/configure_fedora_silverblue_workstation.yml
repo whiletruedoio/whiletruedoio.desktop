@@ -19,7 +19,7 @@
 
     - name: "Import flathub Role"
       ansible.builtin.import_role:
-        name: "whiletruedoio.desktop.flathub"
+        name: "whiletruedoio.desktop.flathub_repos"
       tags:
         - "flathub"
         - "repository"

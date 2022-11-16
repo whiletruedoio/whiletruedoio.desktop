@@ -1,0 +1,52 @@
+---
+# roles/starship/tasks/main.yml
+
+## Binary Management
+
+- name: "Manage starship Binary Directory"
+  ansible.builtin.file:
+    name: "{{ starship_binary_location }}"
+    state: "directory"
+    owner: "root"
+    group: "root"
+    mode: 0755
+  become: true
+  tags:
+    - "starship"
+    - "binary"
+
+- name: "Download starship Binary"
+  ansible.builtin.unarchive:
+    src: "{{ starship_binary_url }}"
+    remote_src: true
+    dest: "{{ starship_binary_location }}/"
+    owner: "root"
+    group: "root"
+    mode: 0755
+  become: true
+  tags:
+    - "starship"
+    - "binary"
+
+## Configuration Management
+
+- name: "Enable starship Bash Prompt"
+  ansible.builtin.copy:
+    src: "starship-prompt.sh"
+    dest: "/etc/profile.d/z92-starship-prompt.sh"
+    owner: "root"
+    group: "root"
+    mode: 0644
+  become: true
+  tags:
+    - "starship"
+    - "configuration"
+
+- name: "Manage starship user configuration File"
+  ansible.builtin.file:
+    path: "~/.config/starship.toml"
+    state: "file"
+  tags:
+    - "starship"
+    - "configuration"
+...
