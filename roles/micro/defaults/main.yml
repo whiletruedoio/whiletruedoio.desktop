@@ -10,4 +10,10 @@ micro_package_state: "present"
 ## Configuration Management
 
 micro_default_editor_enabled: true
+
+## Plugin Management
+
+micro_plugin_names:
+  - "wc"
+  - "editorconfig"
 ...

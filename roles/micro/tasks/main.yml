@@ -54,4 +54,17 @@
   tags:
     - "micro"
     - "configuration"
+
+## Plugin Management
+
+- name: "Install micro Plugins"
+  ansible.builtin.command:
+    cmd: "micro -plugin install {{ item }}"
+    creates: "~/.config/micro/plug/{{ item }}/"
+  loop: "micro_plugin_names"
+  when:
+    - "micro_plugin_names | length > 0"    
+  tags:
+    - "micro"
+    - "plugin"
 ...
