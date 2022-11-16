@@ -1,7 +1,7 @@
 ---
 # roles/gnome_config/tasks/appearance.yml
 
-- name: "Set Background"
+- name: "Set Background (light)"
   community.general.dconf:
     key: "/org/gnome/desktop/background/picture-uri"
     value: "'file://{{ gnome_config_background_path }}'"
@@ -11,7 +11,7 @@
     - "appearance"
     - "configuration"
 
-- name: "Set Background"
+- name: "Set Background (dark)"
   community.general.dconf:
     key: "/org/gnome/desktop/background/picture-uri-dark"
     value: "'file://{{ gnome_config_background_dark_path }}'"

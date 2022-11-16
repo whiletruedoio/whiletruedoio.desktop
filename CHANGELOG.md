@@ -11,6 +11,20 @@ This is the changelog of
 
 ### Added
 
+- cirrus_cli role
+- fedora_repos role
+- firefox role
+- flathub_repos role
+- flatpak apps role
+- gnome_config role
+- kubectl role
+- kubectx role
+- kubens role
+- micro role
+- minikube role
+- skaffold role
+- visualstudiocode role
+
 ### Changed
 
 <!--
