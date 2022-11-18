@@ -4,12 +4,13 @@
 - [ ] helmfile role
 - [ ] k9s role
 - [ ] gnome_extensions role
-- [ ] pano gnome extension
+- [ ] pano gnome extension + ligda
 - [ ] vault + cryfs role
 - [ ] general package role
-- [ ] starship prompt
+- [x] starship prompt
 - [ ] gnome_terminal settings
 - [ ] gnome_terminal profiles
+- [x] ngrok
 
 ## TBC
 

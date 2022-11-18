@@ -1,0 +1,11 @@
+---
+# roles/ngrok/defaults/main.yml
+
+## Binary Management
+
+ngrok_binary_state: "present"
+
+ngrok_binary_url: "https://bin.equinox.io/c/bNyj1mQVY4c/ngrok-v3-stable-linux-amd64.tgz"
+
+ngrok_binary_location: "/usr/local/bin"
+...

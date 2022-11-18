@@ -1,0 +1,30 @@
+---
+# roles/ngrok/tasks/main.yml
+
+## Binary Management
+
+- name: "Manage ngrok Binary Directory"
+  ansible.builtin.file:
+    name: "{{ ngrok_binary_location }}"
+    state: "directory"
+    owner: "root"
+    group: "root"
+    mode: 0755
+  become: true
+  tags:
+    - "ngrok"
+    - "binary"
+
+- name: "Download ngrok Binary"
+  ansible.builtin.unarchive:
+    src: "{{ ngrok_binary_url }}"
+    remote_src: true
+    dest: "{{ ngrok_binary_location }}/"
+    owner: "root"
+    group: "root"
+    mode: 0755
+  become: true
+  tags:
+    - "ngrok"
+    - "binary"
+...
