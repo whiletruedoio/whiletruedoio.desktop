@@ -5,7 +5,7 @@
 
 cirrus_cli_binary_state: "present"
 
-cirrus_cli_binary_version: "v0.91.1"
+cirrus_cli_binary_version: "v0.91.2"
 cirrus_cli_binary_url: "https://github.com/cirruslabs/cirrus-cli/releases/download/{{ cirrus_cli_binary_version }}/cirrus-linux-amd64"
 
 cirrus_cli_binary_location: "/usr/local/bin"
