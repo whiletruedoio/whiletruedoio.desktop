@@ -5,7 +5,7 @@
 
 starship_binary_state: "present"
 
-starship_binary_version: "v1.11.0"
+starship_binary_version: "v1.14.2"
 starship_binary_url: "https://github.com/starship/starship/releases/download/{{ starship_binary_version }}/starship-x86_64-unknown-linux-gnu.tar.gz"
 starship_binary_checksum: "https://github.com/starship/starship/releases/download/{{ starship:binary_version }}/starship-x86_64-unknown-linux-gnu.tar.gz.sha256"
 
