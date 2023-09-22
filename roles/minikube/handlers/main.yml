@@ -1,0 +1,11 @@
+---
+# roles/minikube/handlers/main.yml
+
+- name: "Generate minikube completion Configuration"
+  ansible.builtin.shell:
+    cmd: "{{ minikube_binary_location }}/minikube completion bash > /etc/bash_completion.d/minikube-completion.sh"
+  become: true
+  tags:
+    - "minikube"
+    - "configuration"
+...

@@ -1,0 +1,30 @@
+---
+# roles/hadolint/tasks/main.yml
+
+## Binary Management
+
+- name: "Manage hadolint Binary Directory"
+  ansible.builtin.file:
+    name: "{{ hadolint_binary_location }}"
+    state: "directory"
+    owner: "root"
+    group: "root"
+    mode: 0755
+  become: true
+  tags:
+    - "hadolint"
+    - "binary"
+
+- name: "Download hadolint Binary"
+  ansible.builtin.get_url:
+    url: "{{ hadolint_binary_url }}"
+    # checksum: ”sha256:{{ hadolint_binary_checksum }}”
+    dest: "{{ hadolint_binary_location }}/hadolint"
+    owner: "root"
+    group: "root"
+    mode: 0755
+  become: true
+  tags:
+    - "hadolint"
+    - "binary"
+...

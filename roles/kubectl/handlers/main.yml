@@ -1,0 +1,11 @@
+---
+# roles/kubectl/tasks/main.yml
+
+- name: "Generate kubectl completion Configuration"
+  ansible.builtin.shell:
+    cmd: "{{ kubectl_binary_location }}/kubectl completion bash > /etc/bash_completion.d/kubectl-completion.sh"
+  become: true
+  tags:
+    - "kubectl"
+    - "completion"
+...

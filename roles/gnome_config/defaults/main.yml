@@ -13,7 +13,7 @@ gnome_config_night_light_schedule: "true"
 
 ### Keyboard
 
-gnome_config_shortcut_show_destop: "['<Super>D']"
+gnome_config_shortcut_show_desktop: "['<Super>D']"
 gnome_config_shortcut_switch_windows: "['<Alt>Tab']"
 
 ### Mouse

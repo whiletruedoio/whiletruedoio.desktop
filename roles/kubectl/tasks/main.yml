@@ -24,6 +24,8 @@
     group: "root"
     mode: 0755
   become: true
+  notify:
+    - "Generate kubectl completion Configuration"
   tags:
     - "kubectl"
     - "binary"

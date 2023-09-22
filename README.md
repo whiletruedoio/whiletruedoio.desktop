@@ -41,7 +41,31 @@ None.
 
 ### Roles
 
-TbD
+#### General
+
+- [Firefox](./roles/firefox/)
+- [Flathub Repository](./roles/flathub_repos/)
+- [Flatpak Applications](./roles/flatpak_apps/)
+- [GNOME Configuration](./roles/gnome_config/)
+- [GPaste](./roles/gpaste/)
+- [Starship](./roles/starship/)
+
+#### Development
+
+- [Cirrus CLI](./roles/cirrus_cli/)
+- [Hadolint](./roles/hadolint/)
+- [kubectl](./roles/kubectl/)
+- [kubectx](./roles/kubectx/)
+- [kubens](./roles/kubens/)
+- [Micro Editor](./roles/micro/)
+- [Minikube](./roles/minikube/)
+- [ngrok](./roles/ngrok/)
+- [skaffold](./roles/skaffold/)
+- [VSCode](./roles/visualstudiocode/)
+
+#### Fedora specific
+
+- [Fedora Repositories](./roles/fedora_repos/)
 
 ### Playbooks
 

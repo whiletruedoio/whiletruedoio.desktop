@@ -5,9 +5,15 @@
 
 starship_binary_state: "present"
 
-starship_binary_version: "v1.15.0"
+starship_binary_version: "v1.16.0"
 starship_binary_url: "https://github.com/starship/starship/releases/download/{{ starship_binary_version }}/starship-x86_64-unknown-linux-gnu.tar.gz"
 starship_binary_checksum: "https://github.com/starship/starship/releases/download/{{ starship:binary_version }}/starship-x86_64-unknown-linux-gnu.tar.gz.sha256"
 
 starship_binary_location: "/usr/local/bin"
+
+# The below variable should follow the usual starship configuration format.
+# It will be rendered "as is" to the starship.toml file.
+starship_configuration: |
+  [kubernetes]
+  disabled = false
 ...

@@ -5,7 +5,7 @@
 
 kubectx_binary_state: "present"
 
-kubectx_binary_version: "v0.9.4"
+kubectx_binary_version: "v0.9.5"
 kubectx_binary_url: "https://github.com/ahmetb/kubectx/releases/download/{{ kubectx_binary_version }}/kubectx"
 
 kubectx_binary_location: "/usr/local/bin"

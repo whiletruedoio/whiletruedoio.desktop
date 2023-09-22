@@ -43,9 +43,10 @@
     - "configuration"
 
 - name: "Manage starship user configuration File"
-  ansible.builtin.file:
-    path: "~/.config/starship.toml"
-    state: "file"
+  ansible.builtin.template:
+    src: "starship.toml.j2"
+    dest: "~/.config/starship.toml"
+    backup: true
   tags:
     - "starship"
     - "configuration"

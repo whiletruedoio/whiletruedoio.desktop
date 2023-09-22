@@ -7,13 +7,17 @@
 - [ ] kube score
 - [ ] trivy scanner
 - [ ] gnome_extensions role
-- [ ] vault + cryfs role
 - [o] dnf role -> whiletruedoio.general
 - [ ] rpm_ostree role -> whiletruedoio.general
-- [ ] package role
-- [x] starship prompt
 - [ ] gnome_terminal removal
-- [x] ngrok
+- [ ] goss
+- [ ] stacker
+- [ ] hurl
+- [ ] etcd
+- [ ] telepresence
+- [ ] wireguard config
+- [ ] operator sdk?
+- [ ] hadolint
 
 ## TBC
 

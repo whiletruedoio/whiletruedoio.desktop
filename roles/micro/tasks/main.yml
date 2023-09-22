@@ -63,7 +63,14 @@
     creates: "~/.config/micro/plug/{{ item }}/"
   loop: "{{ micro_plugin_names }}"
   when:
-    - "micro_plugin_names | length > 0"    
+    - "micro_plugin_names | length > 0"
+  tags:
+    - "micro"
+    - "plugin"
+
+- name: "Update micro Plugins"
+  ansible.builtin.command:
+    cmd: "micro -plugin update"
   tags:
     - "micro"
     - "plugin"

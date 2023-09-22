@@ -1,6 +1,0 @@
----
-# roles/flathub/requirements.yml
-
-collections:
-  - "community.general"
-...

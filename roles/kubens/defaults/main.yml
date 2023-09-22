@@ -5,7 +5,7 @@
 
 kubens_binary_state: "present"
 
-kubens_binary_version: "v0.9.4"
+kubens_binary_version: "v0.9.5"
 kubens_binary_url: "https://github.com/ahmetb/kubectx/releases/download/{{ kubens_binary_version }}/kubens"
 
 kubens_binary_location: "/usr/local/bin"

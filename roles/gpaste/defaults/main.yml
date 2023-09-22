@@ -1,0 +1,8 @@
+---
+# roles/gpaste/defaults/main.yml
+
+## Package Management
+
+gpaste_package_names: "gpaste"
+gpaste_package_state: "absent"
+...

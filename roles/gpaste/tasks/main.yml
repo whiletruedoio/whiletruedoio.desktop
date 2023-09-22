@@ -1,0 +1,27 @@
+---
+# roles/gpaste/tasks/main.yml
+
+### Fedora Workstation, Server, Cloud
+- name: "Manage gpaste Packages (dnf)"
+  ansible.builtin.package:
+    name: "{{ gpaste_package_names }}"
+    state: "{{ gpaste_package_state }}"
+  become: true
+  when:
+    - "ansible_pkg_mgr =='dnf'"
+  tags:
+    - "gpaste"
+    - "package"
+
+### Fedora Silverblue, IoT, CoreOS
+- name: "Manage gpaste Packages (rpm-ostree)"
+  community.general.rpm_ostree_pkg:
+    name: "{{ gpaste_package_names }}"
+    state: "{{ gpaste_package_state }}"
+  become: true
+  when:
+    - "ansible_pkg_mgr =='atomic_container'"
+  tags:
+    - "gpaste"
+    - "package"
+...

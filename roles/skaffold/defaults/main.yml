@@ -5,7 +5,7 @@
 
 skaffold_binary_state: "present"
 
-skaffold_binary_version: "v2.5.1"
+skaffold_binary_version: "v2.7.1"
 skaffold_binary_url: "https://github.com/GoogleContainerTools/skaffold/releases/download/{{ skaffold_binary_version }}/skaffold-linux-amd64"
 skaffold_binary_checksum: "https://github.com/GoogleContainerTools/skaffold/releases/download/{{ skaffold_binary_version }}/skaffold-linux-amd64.sha256"
 
